@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { ok } from 'assert';
 
-test.only('API GET Request', async ({ request }) => {
+test('API GET Request', async ({ request }) => {
     const response = await request.get('users/2');
 
     const responseBody = JSON.parse(await response.text());

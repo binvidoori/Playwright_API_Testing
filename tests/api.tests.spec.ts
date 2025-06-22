@@ -27,6 +27,18 @@ test('API POST Request', async ({ request }) => {
     expect(await response.text()).toContain('Benjanata')
 })
 
+test('API POST Requests', async ({ request }) => {
+    const response = await request.post('users', {
+
+        data: {
+            "name": "mot le geday",
+            "job": "leader",
+        }
+    })
+    
+    expect(response.status()).toBe(201);
+    expect(await response.text()).toContain('mot le geday')
+})
 
 test('API PUT Request', async ({ request }) => {
     const response = await request.put('users/2', {
